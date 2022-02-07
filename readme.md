@@ -1,6 +1,6 @@
 
 
-![alt text](img.jpg)
+![alt text](img.jpeg)
 
 # Hello,
 I’m Naveena Kota, an international student from India. Currently pursuing master's in computer science for this spring 2022. I finished my under-graduation in 2019 with a major in Electronics and Communication Engineering from Andhra University. As I am a student from electronics background, I have less expertise with computer science and programming courses but managed to gain knowledge in C, Java. After continuous learning and practice in these two programming courses, now I feel I am pretty good at them.  After my undergrad, I worked as Software developer in TCS. Here I was exposed to the various software tools such as C, Java, UNIX, Linux, Operating Systems and various other tools like github, jcat, Jenkins. We as a team worked with Ericsson client for connectivity packet platform (CPP) project and this helped me build knowledge and expertise on how the communication happen between radio network controllers via media gateway. In this project, I worked on WCDMA and LTE applications to be used when developing ATM (Asynchronous Transfer Mode) and IP (Internet Protocol) based nodes.
