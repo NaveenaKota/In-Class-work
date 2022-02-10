@@ -7,6 +7,12 @@
     <title>Bulma First Assignment</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+    <style>
+      :checked + span {
+          text-decoration: line-through;
+          text-decoration-color: red;
+      }
+  </style>
 </head>
 <body>
   <nav class="navbar is-primary">
@@ -142,6 +148,7 @@
                           <span>All</span>
                         </a>
                       </li>
+                     
                     </ul>
                   </div>
                 <div class="panel-block">
@@ -154,23 +161,24 @@
                 </div>
                 <a class="panel-block">
                     <input type="checkbox" checked />
-                    Make Bulma great again
+                    <span>Make Bulma great again</span>
+                    
                 </a>
                 <a class="panel-block">
                     <input type="checkbox" />
-                    Add some more features
+                    <span>Add some more features</span> 
                 </a>
                 <a class="panel-block">
                     <input type="checkbox" />
-                    Make a github account
+                    <span>Make a github account</span>
                 </a>
                 <a class="panel-block">
                     <input type="checkbox" />
-                    Learn how to use github
+                    <span>Learn how to use github</span>
                 </a>
                 <a class="panel-block">
                     <input type="checkbox" />
-                    add a .gitignore file
+                    <span>add a .gitignore file</span>
                 </a>
               </article>
         </div>
@@ -220,5 +228,28 @@
     </div>
 
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    $(".tabs li").click(function(){
+            $(".tabs li.is-active").removeClass("is-active");
+            $(this).addClass("is-active");
+
+        if($(this).text().trim() == "Current"){
+      display();
+      $(":checked").closest(".panel-block").hide();
+    }
+    else if($(this).text().trim() == "Completed"){
+      display();
+      $("input:not(:checked)").closest(".panel-block").hide();
+    }
+    else {
+      display();
+    }
+    });
+    
+  function display(){
+    $(".panel-block").show();
+    }
+  </script>
 </body>
 </html>
