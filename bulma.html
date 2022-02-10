@@ -7,6 +7,7 @@
     <title>Bulma First Assignment</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+   
     <style>
       :checked + span {
           text-decoration: line-through;
@@ -162,7 +163,6 @@
                 <a class="panel-block">
                     <input type="checkbox" checked />
                     <span>Make Bulma great again</span>
-                    
                 </a>
                 <a class="panel-block">
                     <input type="checkbox" />
@@ -235,21 +235,19 @@
             $(this).addClass("is-active");
 
         if($(this).text().trim() == "Current"){
-      display();
+          $(".panel-block").show();
       $(":checked").closest(".panel-block").hide();
     }
     else if($(this).text().trim() == "Completed"){
-      display();
+      $(".panel-block").show();
       $("input:not(:checked)").closest(".panel-block").hide();
     }
     else {
-      display();
+      $(".panel-block").show();
     }
     });
-    
-  function display(){
-    $(".panel-block").show();
-    }
+        
+
   </script>
 </body>
 </html>
