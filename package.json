@@ -1,7 +1,8 @@
 {
   "name": "assignment",
   "version": "1.0.0",
-  "description": "![alt text](img.jpeg)",
+  "description": "-HTML\r -CSS\r -Bulma\r -Vue\r -NodeJS\r -Express\r -CI/CD",
+   "private": true,
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +10,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NaveenaKota/demo.git"
+  },
+  "dependencies": {
+      "express": "^4.17.3"
   },
   "author": "",
   "license": "ISC",
