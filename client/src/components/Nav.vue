@@ -1,5 +1,6 @@
 <script setup lang = "ts">
-
+import {ref} from 'vue';
+   const isOpen = ref(false);
 </script>
 <template>
    <nav class="navbar is-primary">
@@ -7,14 +8,14 @@
       <a class="navbar-item" href="https://bulma.io">
         <img src="https://bulma.io/images/bulma-logo-white.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
       </a>
-      <div class="navbar-burger" data-target="navbarExampleTransparentExample">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <a role = "button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active': isOpen}" @click="isOpen = !isOpen">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
   
-    <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-menu"  :class="{ 'is-active': isOpen }">
       <div class="navbar-start">
         <a class="navbar-item" href="https://bulma.io/">
           Home
