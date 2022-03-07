@@ -29,7 +29,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-    if([ '/messages'].includes(to.path)) {
+    if([ '/messages', '/wall', '/feed'].includes(to.path)) {
         if(!session.user) {
             return '/login';
         }

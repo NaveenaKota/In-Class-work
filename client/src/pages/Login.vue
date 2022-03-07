@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import {Login} from '../models/sessions';
+import { Login } from '../models/sessions';
 
-  function login()
+
+  function badlogin()
   {
       Login('Naveena', 'Naveena@123')
+  }
+  function login()
+  {
+      Login('Naveena', 'password')
   }
 </script>
 
@@ -15,6 +20,13 @@ import {Login} from '../models/sessions';
                 <i class = "fa fa-sign-in"></i>
             </span>
             <span>Login</span>
+        </button>
+
+        <button class = "button is-primary" @click="badlogin">
+            <span class = "icon">
+                <i class = "fa fa-sign-in"></i>
+            </span>
+            <span>bad Login</span>
         </button>
     </div>
 </template>
