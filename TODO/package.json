@@ -1,0 +1,29 @@
+{
+  "name": "assignment",
+  "version": "1.0.0",
+  "description": "-HTML\r -CSS\r -Bulma\r -Vue\r -NodeJS\r -Express\r -CI/CD",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch server server/index.js",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NaveenaKota/demo.git"
+  },
+  "dependencies": {
+    "@types/react": "^17.0.39",
+    "express": "^4.17.3"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NaveenaKota/demo/issues"
+  },
+  "homepage": "https://github.com/NaveenaKota/demo#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
