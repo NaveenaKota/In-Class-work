@@ -38,8 +38,4 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4.2.3
       with:
           branch: gh-pages # The branch the action should deploy to.
-<<<<<<< HEAD
           folder: dist # The folder the action should deploy.
-=======
-          folder: dist # The folder the action should deploy.
->>>>>>> 2d24765569fa88d85625af5f766c2ccdb0e43072
