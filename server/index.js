@@ -1,22 +1,18 @@
 const express = require('express')
+
+const usersController = require('./controllers/users');
+
 const app = express()
 const port = 3000
 
 app
-.get('/', (req, res) => {
+
+   .use('/', express.static(__dirname + '/public'))
+
+   .get('/api/', (req, res) => {
   res.send('You are on the homepage')
 })
-.get('/about', (req, res) => {
-  res.send('You are on the about page')
-})
-.get('/contact', (req, res) => {
-  res.send({
-    email: 'kotan1@newpaltz.edu',
-    phone: '845-375-6253',
-    instagram:'naveena'
-  })
-})
-
+  .use('/api/users', usersController)   
 
 
 app.listen(port, () => {
