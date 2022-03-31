@@ -4,6 +4,14 @@ http://localhost:3000
 GET http://localhost:3000/api/users/
 
 ###
+GET http://localhost:3000/api/users/1
+
+###
+
+DELETE  http://localhost:3000/api/users/1
+
+
+###
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
@@ -14,4 +22,12 @@ Content-Type: application/json
   "password": "password",
   "email": "naveenakota14@gmail.com",
   "pic": "https://randomuser.me/api/portraits/men/1.jpg"
+  }
+
+###
+PATCH http://localhost:3000/api/users/2
+Content-Type: application/json
+
+{
+  "lastName": "Putin III"
 }
