@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "@types/react": "^17.0.39",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "dotenv": "^16.0.0",
+    "bcrypt":"^5.0.1"
   },
   "author": "",
   "license": "ISC",
