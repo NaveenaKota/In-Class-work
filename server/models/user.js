@@ -1,5 +1,9 @@
 let hieghstId = 3;
 const bcrypt = require ('bcrypt');
+const jwt = require('jsonwebtoken');
+const { db, isConnected } = require('./mongo');
+
+const collection = db.db("classTasks").collection("users");
 
 const list = [
     {
@@ -32,15 +36,16 @@ const list = [
 
 ];
 
-function get (id){
-    return { ...list.find(user => user.id === parseInt(id)), password: undefined };
+async function get (id){
+    const user = await collection.findOne({ _id: id});
+
+    return { ...user, password: undefined };
 }
 
-function remove(id){
-    const index = list.findIndex(user => user.id === parseInt(id));
-    const user = list.splice(index,1);
+async function remove(id){
+    const user = await collection.findOneAndDelete({ _id: id});
 
-    return { ...user[0], password: undefined};
+    return { ...user.value, password: undefined};
 }
 
 async function update(id, newUser){
@@ -57,8 +62,39 @@ async function update(id, newUser){
     return { ...newUser, password: undefined};
 }
 
+async function login(email, password){
+    const user = list.find(user => user.email == email);
+    if (!user){
+        throw { statusCode: 404, message: 'User not found'};
+    }
+    if (!await bcrypt.compare(password, user.password)){
+        throw { statusCode: 401, message: 'Invalid password'};
+    }
+    const data = {...user, password: undefined};
+    const token = jwt.sign(data, process.env.JWT_SECRET);
+    return {...data, token};
+}
+
+async function fromToken(token){
+    return new Promise((resolve, reject) => {
+        jwt.verify(token, process.env.JWT_SECRET, (err, decoded)=> {
+            if(err){
+                reject(err);
+            }
+            else{
+                resolve(decoded);
+            }
+        });
+    });
+}
+
+function seed(){
+    return collection.insertMany(list);
+}
 
 module.exports = {
+    collection,
+    seed,
     async create(user) {
         user.id = ++hieghstId;
 
@@ -70,8 +106,8 @@ module.exports = {
     },
     remove,
     update,
-    get list(){
-        return list.map(x=> ({...x, password: undefined }) );
+    async getList(){
+        return (await collection.find().toArray()).map(x=> ({...x, password: undefined }) );
     }
 }
 
